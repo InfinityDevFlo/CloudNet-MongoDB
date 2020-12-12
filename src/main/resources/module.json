@@ -1,0 +1,11 @@
+{
+  "group": "eu.vironlab",
+  "name": "CloudNet-MongoDB",
+  "version": "1.0.0",
+  "runtimeModule": true,
+  "author": "VironLab",
+  "main": "eu.vironlab.cloudnetmongodb.CloudNetMongoDB",
+  "description": "Brings the MongoDB Support for CloudNet 3",
+  "website": "https://vironlab.eu",
+  "dataFolder": "modules/VironLab/CloudNet-MongoDB"
+}
