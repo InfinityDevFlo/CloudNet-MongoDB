@@ -37,7 +37,7 @@ dependencies {
     implementation(getDependency("kotlin", "stdlib"))
     implementation(getDependency("kotlinx", "coroutines-core"))
     implementation(getDependency("cloudnet", "cloudnet"))
-    implementation(getDependency("database", "kmongo"))
+    implementation(getDependency("database", "mongo"))
 }
 
 if (System.getProperty("publishName") != null && System.getProperty("publishPassword") != null) {
@@ -149,7 +149,7 @@ tasks {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = "11"
+        kotlinOptions.jvmTarget = "16"
     }
 
     withType<JavaCompile> {

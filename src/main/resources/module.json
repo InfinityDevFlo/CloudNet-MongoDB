@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "runtimeModule": true,
   "author": "VironLab",
-  "main": "eu.vironlab.cloudnetmongo.CloudNetMongo",
+  "main": "eu.vironlab.cloudnetmongo.CloudNetMongoDB",
   "description": "Brings the MongoDB Support for CloudNet 3",
   "website": "https://vironlab.eu",
   "dataFolder": "modules/CloudNet-MongoDB"

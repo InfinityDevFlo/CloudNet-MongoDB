@@ -61,8 +61,11 @@ object Properties {
             it["kotlinx"] = mutableMapOf(
                 Pair("coroutines-core", "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
             )
+            it["kotlinx"] = mutableMapOf(
+                Pair("coroutines-core", "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+            )
             it["database"] = mutableMapOf(
-                Pair("kmongo", "org.litote.kmongo:kmongo:4.2.8")
+                Pair("mongo", "org.mongodb:mongodb-driver-sync:4.3.0")
             )
             it["cloudnet"] = mutableMapOf(
                 Pair("cloudnet", "de.dytanic.cloudnet:cloudnet:%version%")

@@ -49,5 +49,5 @@ object Repositories {
     const val MINECRAFT = "https://libraries.minecraft.net/"
     const val MINECRAFT_PAPER = "https://papermc.io/repo/repository/maven-public/"
     const val DESTROYSTOKYO = "https://repo.destroystokyo.com/repository/maven-public/"
-
+    const val CLOUDNET = "https://repo.cloudnetservice.eu/repository/releases/"
 }
