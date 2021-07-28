@@ -28,8 +28,8 @@ repositories {
 }
 
 //Define Version and Group
-//this.group = Properties.group
-//this.version = Properties.version
+this.group = Properties.group
+this.version = Properties.version
 
 
 //Define Dependencies for all Modules
@@ -47,9 +47,9 @@ if (System.getProperty("publishName") != null && System.getProperty("publishPass
         }
         publications {
             create<MavenPublication>(project.name) {
-             //   groupId = Properties.group
+               groupId = Properties.group
                 artifactId = project.name
-               // version = Properties.version
+               version = Properties.version
                 from(components.findByName("java"))
                 pom {
                     name.set(project.name)
