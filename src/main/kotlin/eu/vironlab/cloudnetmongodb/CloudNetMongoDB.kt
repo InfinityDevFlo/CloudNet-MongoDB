@@ -56,7 +56,8 @@ class CloudNetMongoDB : NodeCloudNetModule() {
 
     @ModuleTask(order = 126, event = ModuleLifeCycle.LOADED)
     fun initConfig() {
-        getConfig().getDocument("connection",
+        getConfig().getDocument(
+            "connection",
             JsonDocument.newDocument("host", "localhost").append("port", 27017).append("user", "cloudnet")
                 .append("password", "cloudnet").append("database", "cloudnet").append("authMechanism", "SCRAM-SHA-1")
         )
@@ -69,7 +70,7 @@ class CloudNetMongoDB : NodeCloudNetModule() {
         mongoDatabaseProvider =
             MongoDatabaseProvider(
                 System.getenv("CLOUDNET_MONGODB_HOST") ?: connection.getString("host"),
-                System.getenv("CLOUDNET_MONGODB_PORT").toInt() ?: connection.getInt("port"),
+                System.getenv("CLOUDNET_MONGODB_PORT")?.toInt() ?: connection.getInt("port"),
                 System.getenv("CLOUDNET_MONGODB_USER") ?: connection.getString("user"),
                 System.getenv("CLOUDNET_MONGODB_PASSWORD") ?: connection.getString("password"),
                 System.getenv("CLOUDNET_MONGODB_DATABASE") ?: connection.getString("database"),
