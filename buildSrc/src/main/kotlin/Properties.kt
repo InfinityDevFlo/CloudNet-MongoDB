@@ -59,10 +59,7 @@ object Properties {
                 Pair("stdlib", "org.jetbrains.kotlin:kotlin-stdlib:%version%")
             )
             it["kotlinx"] = mutableMapOf(
-                Pair("coroutines-core", "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
-            )
-            it["kotlinx"] = mutableMapOf(
-                Pair("coroutines-core", "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+                Pair("coroutines-core", "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
             )
             it["database"] = mutableMapOf(
                 Pair("mongo", "org.mongodb:mongodb-driver-sync:4.3.0")
