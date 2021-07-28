@@ -5,3 +5,13 @@ plugins {
 repositories {
     mavenCentral()
 }
+
+tasks {
+    compileKotlin {
+        kotlinOptions.jvmTarget = "16"
+    }
+
+    withType<JavaCompile> {
+        this.options.encoding = "UTF-8"
+    }
+}
