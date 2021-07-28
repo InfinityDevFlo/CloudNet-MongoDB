@@ -1,3 +1,5 @@
+import Properties.group
+
 buildscript {
     repositories {
         gradlePluginPortal()
@@ -28,8 +30,8 @@ repositories {
 }
 
 //Define Version and Group
-this.group = Properties.group
-this.version = Properties.version
+group = Properties.group
+version = Properties.version
 
 
 //Define Dependencies for all Modules
