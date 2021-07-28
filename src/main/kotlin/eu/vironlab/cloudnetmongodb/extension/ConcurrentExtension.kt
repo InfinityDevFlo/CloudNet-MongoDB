@@ -50,7 +50,7 @@ import kotlinx.coroutines.launch
 
 val scope = CoroutineScope(Executors.newCachedThreadPool().asCoroutineDispatcher())
 
-internal fun <T> schedule(callable: () -> Unit): ITask<T> {
+internal fun <T> schedule(callable: () -> T): ITask<T> {
     val task: ITask<T> = ListenableTask(callable)
     scope.launch {
         try {

@@ -43,10 +43,15 @@ package eu.vironlab.cloudnetmongodb;
 import com.mongodb.BasicDBObject
 import com.mongodb.client.MongoCollection
 import de.dytanic.cloudnet.common.concurrent.ITask
+import de.dytanic.cloudnet.common.concurrent.ITaskListener
+import de.dytanic.cloudnet.common.concurrent.ListenableTask
+import de.dytanic.cloudnet.common.concurrent.function.ThrowableFunction
 import de.dytanic.cloudnet.common.document.gson.JsonDocument
 import de.dytanic.cloudnet.driver.database.Database
 import eu.vironlab.cloudnetmongodb.extension.schedule
+import java.util.concurrent.Callable
 import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.TimeUnit
 import java.util.function.BiConsumer
 import java.util.function.BiPredicate
 import org.bson.Document
@@ -155,7 +160,7 @@ class MongoDatabase(mongoDatabaseProvider: MongoDatabaseProvider, private val na
         }
     }
 
-    override fun clear(): Unit = collection.deleteMany(BasicDBObject()).let { Unit }
+    override fun clear() = collection.deleteMany(BasicDBObject()).let { Unit }
 
     override fun getDocumentsCount(): Long = collection.countDocuments()
 
@@ -186,9 +191,9 @@ class MongoDatabase(mongoDatabaseProvider: MongoDatabaseProvider, private val na
     override fun filterAsync(predicate: BiPredicate<String, JsonDocument>): ITask<MutableMap<String, JsonDocument>> =
         schedule { filter(predicate) }
 
-    override fun iterateAsync(consumer: BiConsumer<String, JsonDocument>): ITask<Void> = schedule { iterate(consumer); Unit }
+    override fun iterateAsync(consumer: BiConsumer<String, JsonDocument>): ITask<Void?> = schedule { iterate(consumer); null }
 
-    override fun clearAsync(): ITask<Void> = schedule { clear() }
+    override fun clearAsync(): ITask<Void?> = schedule { clear(); null }
 
     override fun getDocumentsCountAsync(): ITask<Long> = schedule { documentsCount }
 }

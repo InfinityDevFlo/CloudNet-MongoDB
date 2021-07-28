@@ -36,7 +36,7 @@ repositories {
 dependencies {
     implementation(getDependency("kotlin", "stdlib"))
     implementation(getDependency("kotlinx", "coroutines-core"))
-    implementation(getDependency("cloudnet", "cloudnet"))
+    compileOnly(getDependency("cloudnet", "cloudnet"))
     implementation(getDependency("database", "mongo"))
 }
 
