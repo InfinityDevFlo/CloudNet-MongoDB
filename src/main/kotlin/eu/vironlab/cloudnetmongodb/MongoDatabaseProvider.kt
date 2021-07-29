@@ -51,7 +51,8 @@ class MongoDatabaseProvider(
     val user: String,
     val password: String,
     val database: String,
-    val authMechanism: String
+    val authMechanism: String,
+    val authDB: String
 ) : AbstractDatabaseProvider() {
 
     lateinit var client: MongoClient
@@ -76,7 +77,8 @@ class MongoDatabaseProvider(
     override fun close() = client.close()
 
     override fun init(): Boolean {
-        client = MongoClients.create("mongodb://$user:$password@$host:$port/$database?authMechanism=$authMechanism")
+        client =
+            MongoClients.create("mongodb://$user:$password@$host:$port/$authDB?authMechanism=$authMechanism")
         mongoDatabase = client.getDatabase(database)
         return true
     }

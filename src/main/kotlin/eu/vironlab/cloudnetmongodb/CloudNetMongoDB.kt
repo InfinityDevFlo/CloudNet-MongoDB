@@ -60,6 +60,7 @@ class CloudNetMongoDB : NodeCloudNetModule() {
             "connection",
             JsonDocument.newDocument("host", "localhost").append("port", 27017).append("user", "cloudnet")
                 .append("password", "cloudnet").append("database", "cloudnet").append("authMechanism", "SCRAM-SHA-1")
+                .append("authDB", "admin")
         )
         saveConfig()
     }
@@ -74,7 +75,8 @@ class CloudNetMongoDB : NodeCloudNetModule() {
                 System.getenv("CLOUDNET_MONGODB_USER") ?: connection.getString("user"),
                 System.getenv("CLOUDNET_MONGODB_PASSWORD") ?: connection.getString("password"),
                 System.getenv("CLOUDNET_MONGODB_DATABASE") ?: connection.getString("database"),
-                System.getenv("CLOUDNET_MONGODB_AUTHMECHANISM") ?: connection.getString("authMechanism")
+                System.getenv("CLOUDNET_MONGODB_AUTHMECHANISM") ?: connection.getString("authMechanism"),
+                System.getenv("CLOUDNET_MONGODB_AUTHDB") ?: connection.getString("authDB")
             )
         registry.registerService(
             AbstractDatabaseProvider::class.java, "mongodb", mongoDatabaseProvider
