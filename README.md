@@ -2,6 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 [![Discord](https://img.shields.io/discord/785956343407181824.svg)](https://discord.gg/wvcX92VyEH)
+[![Build Status](https://ci.vironlab.eu/job/Vextension/badge/icon)](https://ci.vironlab.eu/job/CloudNet-MongoDB/)
 
 ---
 
@@ -18,9 +19,23 @@ https://github.com/CloudNetService/CloudNet-v3
 
 - Stop Cloudnet
 - Download or Paste the module into the modules directory
-- Start the Cloud and follow the instructions of the Installer
+- Start the Cloud
+- Edit the Config and change the database in the local/registry file to "mongodb"
+- Restart the Cloud
 
 Then you're done and CloudNet uses Mongo Databases
+
+## Docker
+
+If you use Docker you can choose the following environment variable instead of config
+
+    - CLOUDNET_MONGODB_HOS
+    - CLOUDNET_MONGODB_PORT
+    - CLOUDNET_MONGODB_USER
+    - CLOUDNET_MONGODB_PASSWORD
+    - CLOUDNET_MONGODB_DATABASE
+    - CLOUDNET_MONGODB_AUTHMECHANISM
+    - CLOUDNET_MONGODB_AUTHDB
 
 <div align="center">
     <h1 style="color:#154444">Other Links:</h1>
