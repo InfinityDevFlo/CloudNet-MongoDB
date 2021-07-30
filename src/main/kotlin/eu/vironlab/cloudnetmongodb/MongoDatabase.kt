@@ -42,6 +42,7 @@ package eu.vironlab.cloudnetmongodb;
 
 import com.mongodb.BasicDBObject
 import com.mongodb.client.MongoCollection
+import com.mongodb.client.model.InsertOneOptions
 import de.dytanic.cloudnet.common.concurrent.ITask
 import de.dytanic.cloudnet.common.concurrent.ITaskListener
 import de.dytanic.cloudnet.common.concurrent.ListenableTask
@@ -60,7 +61,7 @@ class MongoDatabase(mongoDatabaseProvider: MongoDatabaseProvider, private val na
 
     companion object {
         @JvmStatic
-        var COLLECTION_KEY = "__key__"
+        var COLLECTION_KEY = "_id"
     }
 
     val collection: MongoCollection<Document>
@@ -79,11 +80,12 @@ class MongoDatabase(mongoDatabaseProvider: MongoDatabaseProvider, private val na
     override fun insert(key: String, document: JsonDocument): Boolean = if (contains(key)) {
         update(key, document)
     } else {
-        collection.insertOne(Document.parse(document.toJson())).wasAcknowledged()
+        collection.insertOne(Document.parse(document.toJson()).append(COLLECTION_KEY, key)).wasAcknowledged()
     }
 
     override fun update(key: String, document: JsonDocument): Boolean = if (contains(key)) {
-        collection.replaceOne(BasicDBObject(COLLECTION_KEY, key), Document.parse(document.toJson())).wasAcknowledged()
+        collection.replaceOne(BasicDBObject(COLLECTION_KEY, key), Document.parse(document.toJson()).append(
+            COLLECTION_KEY, key)).wasAcknowledged()
     } else {
         insert(key, document)
     }
