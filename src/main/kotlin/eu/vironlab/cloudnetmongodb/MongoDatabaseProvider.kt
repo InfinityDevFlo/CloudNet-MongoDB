@@ -40,7 +40,11 @@
 
 package eu.vironlab.cloudnetmongodb;
 
+import com.mongodb.ConnectionString
+import com.mongodb.MongoClientSettings
+import com.mongodb.MongoDriverInformation
 import com.mongodb.client.MongoClient
+import com.mongodb.client.MongoClientFactory
 import com.mongodb.client.MongoClients
 import de.dytanic.cloudnet.database.AbstractDatabaseProvider
 import com.mongodb.client.MongoDatabase as MongoDB
@@ -77,8 +81,9 @@ class MongoDatabaseProvider(
     override fun close() = client.close()
 
     override fun init(): Boolean {
+        client = MongoClients.create()
         client =
-            MongoClients.create("mongodb://$user:$password@$host:$port/$authDB?authMechanism=$authMechanism")
+            MongoClients.create(ConnectionString("mongodb+srv:://$user:$password@$host:$port/$authDB?authMechanism=$authMechanism"))
         mongoDatabase = client.getDatabase(database)
         return true
     }
