@@ -40,11 +40,10 @@
 
 package eu.vironlab.cloudnetmongodb;
 
-import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
-import com.mongodb.MongoDriverInformation
+import com.mongodb.MongoCredential
+import com.mongodb.ServerAddress
 import com.mongodb.client.MongoClient
-import com.mongodb.client.MongoClientFactory
 import com.mongodb.client.MongoClients
 import de.dytanic.cloudnet.database.AbstractDatabaseProvider
 import com.mongodb.client.MongoDatabase as MongoDB
@@ -81,9 +80,26 @@ class MongoDatabaseProvider(
     override fun close() = client.close()
 
     override fun init(): Boolean {
-        client = MongoClients.create()
-        client =
-            MongoClients.create(ConnectionString("mongodb+srv:://$user:$password@$host:$port/$authDB?authMechanism=$authMechanism"))
+        client = MongoClients.create(
+            MongoClientSettings.builder().credential(
+                when (authMechanism) {
+                    "SCRAM-SHA-1" -> {
+                        MongoCredential.createScramSha1Credential(user, authDB, password.toCharArray())
+                    }
+                    "SCRAM-SHA-256" -> {
+                        MongoCredential.createScramSha256Credential(user, authDB, password.toCharArray())
+                    }
+                    "MONGODB_X509" -> {
+                        MongoCredential.createMongoX509Credential(user)
+                    }
+                    else -> {
+                        MongoCredential.createCredential(user, authDB, password.toCharArray())
+                    }
+                }
+            ).applyToClusterSettings { cluster ->
+                cluster.hosts(listOf(ServerAddress(host, port)))
+            }.build()
+        )
         mongoDatabase = client.getDatabase(database)
         return true
     }
