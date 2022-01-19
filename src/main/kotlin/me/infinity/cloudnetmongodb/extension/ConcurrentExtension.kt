@@ -1,18 +1,5 @@
 /**
- * Copyright © 2020 | vironlab.eu | Licensed under the GNU General Public license Version 3<p>
- * <p>
- * ___    _______                        ______         ______  <p>
- * __ |  / /___(_)______________ _______ ___  / ______ ____  /_ <p>
- * __ | / / __  / __  ___/_  __ \__  __ \__  /  _  __ `/__  __ \<p>
- * __ |/ /  _  /  _  /    / /_/ /_  / / /_  /___/ /_/ / _  /_/ /<p>
- * _____/   /_/   /_/     \____/ /_/ /_/ /_____/\__,_/  /_.___/ <p>
- * <p>
- * ____  _______     _______ _     ___  ____  __  __ _____ _   _ _____ <p>
- * |  _ \| ____\ \   / / ____| |   / _ \|  _ \|  \/  | ____| \ | |_   _|<p>
- * | | | |  _|  \ \ / /|  _| | |  | | | | |_) | |\/| |  _| |  \| | | |  <p>
- * | |_| | |___  \ V / | |___| |__| |_| |  __/| |  | | |___| |\  | | |  <p>
- * |____/|_____|  \_/  |_____|_____\___/|_|   |_|  |_|_____|_| \_| |_|  <p>
- * <p>
+ * Copyright © 2022 | Florin Dornig | Licensed under the GNU General Public license Version 3<p>
  * <p>
  * This program is free software: you can redistribute it and/or modify<p>
  * it under the terms of the GNU General Public License as published by<p>
@@ -26,19 +13,10 @@
  * <p>
  * You should have received a copy of the GNU General Public License<p>
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.<p>
- *<p>
- *   Creation: Mittwoch 28 Juli 2021 15:59:29<p>
- *<p>
- * <p>
- * Contact:<p>
- * <p>
- * Discordserver:   https://discord.gg/wvcX92VyEH<p>
- * Website:         https://vironlab.eu/ <p>
- * Mail:            contact@vironlab.eu<p>
  * <p>
  */
 
-package eu.vironlab.cloudnetmongodb.extension;
+package me.infinity.cloudnetmongodb.extension;
 
 import de.dytanic.cloudnet.common.concurrent.ITask
 import de.dytanic.cloudnet.common.concurrent.ListenableTask

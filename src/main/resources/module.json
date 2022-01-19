@@ -1,11 +1,10 @@
 {
-  "group": "eu.vironlab",
+  "group": "me.infinity",
   "name": "CloudNet-MongoDB",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "runtimeModule": true,
-  "author": "VironLab",
-  "main": "eu.vironlab.cloudnetmongodb.CloudNetMongoDB",
+  "author": "CodedInfinity",
+  "main": "me.infinity.cloudnetmongodb.CloudNetMongoDB",
   "description": "Brings the MongoDB Support for CloudNet 3",
-  "website": "https://vironlab.eu",
   "dataFolder": "modules/CloudNet-MongoDB"
 }
