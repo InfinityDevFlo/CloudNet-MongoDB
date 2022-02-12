@@ -41,8 +41,8 @@ version = "2.1.0"
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
-    compileOnly("org.mongodb:mongodb-driver-sync:4.4.1")
-    implementation("de.dytanic.cloudnet:cloudnet:3.4.2-RELEASE")
+    implementation("org.mongodb:mongodb-driver-sync:4.4.1")
+    compileOnly("de.dytanic.cloudnet:cloudnet:3.4.2-RELEASE")
 }
 
 tasks {
