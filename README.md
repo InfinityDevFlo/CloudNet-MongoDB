@@ -31,7 +31,7 @@ Then you're done and CloudNet uses Mongo Databases
 
 If you use Docker you can choose the following environment variable instead of config
 
-    - CLOUDNET_MONGODB_HOS
+    - CLOUDNET_MONGODB_HOST
     - CLOUDNET_MONGODB_PORT
     - CLOUDNET_MONGODB_USER
     - CLOUDNET_MONGODB_PASSWORD
